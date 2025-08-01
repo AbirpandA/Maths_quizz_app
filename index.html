@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quest - Epic Math Adventure Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="math-symbol">+</div>
+        <div class="math-symbol">-</div>
+        <div class="math-symbol">×</div>
+        <div class="math-symbol">÷</div>
+        <div class="math-symbol">=</div>
+        <div class="math-symbol">∑</div>
+        <div class="math-symbol">π</div>
+        <div class="math-symbol">∞</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="game-header">
+            <div class="logo-container">
+                <h1 class="game-title">
+                    <span class="math-icon">📐</span>
+                    MATH QUEST
+                    <span class="math-icon">🎯</span>
+                </h1>
+                <p class="game-subtitle">Epic Mathematical Adventure Awaits!</p>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="hero-section">
+            <div class="hero-content">
+                <div class="game-description">
+                    <h2 class="hero-title">🚀 Ready for the Ultimate Math Challenge?</h2>
+                    <p class="hero-text">
+                        Embark on an epic journey through the world of mathematics!
+                        Solve problems, earn points, and conquer levels from easy to legendary difficulty.
+                        Your mathematical prowess will be tested like never before!
+                    </p>
+                </div>
+
+                <!-- Player Registration Form -->
+                <div class="player-registration">
+                    <h3 class="form-title">🎮 Enter Your Quest Name</h3>
+                    <form class="name-form" id="playerForm">
+                        <div class="input-group">
+                            <input type="text" id="playerName" placeholder="Enter your hero name..." maxlength="20"
+                                required>
+                            <button type="submit" class="start-btn">
+                                <span class="btn-text">START QUEST</span>
+                                <span class="btn-icon">⚡</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Game Features -->
+                <div class="game-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h4>Progressive Levels</h4>
+                        <p>Easy → Medium → Hard → Legendary</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⭐</div>
+                        <h4>Point System</h4>
+                        <p>Earn stars for correct answers</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h4>Smart Questions</h4>
+                        <p>Randomly generated challenges</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h4>Achievement System</h4>
+                        <p>Unlock badges and rewards</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Instructions Section -->
+        <section class="instructions-section">
+            <h3 class="instructions-title">🎮 How to Play</h3>
+            <div class="instructions-grid">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <h4>Enter Your Name</h4>
+                    <p>Choose your mathematical hero identity</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <h4>Solve Problems</h4>
+                    <p>Answer math questions to earn points</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <h4>Level Up</h4>
+                    <p>Progress through increasingly difficult challenges</p>
+                </div>
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <h4>Become Legend</h4>
+                    <p>Master all levels and claim your title!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="game-footer">
+            <p>🧮 Math Quest © 2025 | Made with ❤️ for Math Enthusiasts</p>
+        </footer>
+    </div>
+
+    <!-- Game Initialization Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
