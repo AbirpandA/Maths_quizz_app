@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quest - Game Statistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="results-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="math-symbol">+</div>
+        <div class="math-symbol">-</div>
+        <div class="math-symbol">×</div>
+        <div class="math-symbol">÷</div>
+        <div class="math-symbol">=</div>
+        <div class="math-symbol">∑</div>
+        <div class="math-symbol">π</div>
+        <div class="math-symbol">∞</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="results-header">
+            <div class="logo-container">
+                <h1 class="game-title">
+                    <span class="math-icon">📊</span>
+                    MATH QUEST STATS
+                    <span class="math-icon">🏆</span>
+                </h1>
+                <p class="page-subtitle">Your Mathematical Journey Analytics</p>
+            </div>
+            <nav class="nav-buttons">
+                <button class="nav-btn" id="homeBtn">
+                    <span class="btn-icon">🏠</span>
+                    <span>Home</span>
+                </button>
+                <button class="nav-btn" id="playBtn">
+                    <span class="btn-icon">🎮</span>
+                    <span>Play Game</span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Player Summary -->
+        <section class="player-summary">
+            <div class="player-card">
+                <div class="player-avatar-large">🎮</div>
+                <div class="player-info">
+                    <h2 class="player-name" id="playerName">Math Hero</h2>
+                    <div class="player-title" id="playerTitle">Beginner Mathematician</div>
+                    <div class="player-level">
+                        <div class="level-badge" id="levelBadge">Level 1</div>
+                        <div class="experience-bar">
+                            <div class="experience-fill" id="experienceFill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Overview -->
+        <section class="stats-overview">
+            <h2 class="section-title">📈 Performance Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-value" id="totalGames">0</div>
+                    <div class="stat-label">Games Played</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-value" id="totalScore">0</div>
+                    <div class="stat-label">Total Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-value" id="bestScore">0</div>
+                    <div class="stat-label">Best Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-value" id="averageScore">0</div>
+                    <div class="stat-label">Average Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-value" id="averageAccuracy">0%</div>
+                    <div class="stat-label">Average Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value" id="totalTime">0m</div>
+                    <div class="stat-label">Total Play Time</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level Progress -->
+        <section class="level-progress">
+            <h2 class="section-title">🎯 Level Progress</h2>
+            <div class="progress-grid">
+                <div class="level-card" data-level="easy">
+                    <div class="level-header">
+                        <div class="level-icon">🟢</div>
+                        <h3>Easy</h3>
+                        <div class="level-badge" id="easyBadge">0 games</div>
+                    </div>
+                    <div class="level-stats">
+                        <div class="level-stat">
+                            <span>Best Score:</span>
+                            <span id="easyBest">0</span>
+                        </div>
+                        <div class="level-stat">
+                            <span>Avg Accuracy:</span>
+                            <span id="easyAccuracy">0%</span>
+                        </div>
+                    </div>
+                    <div class="level-progress-bar">
+                        <div class="progress-fill" id="easyProgress"></div>
+                    </div>
+                </div>
+
+                <div class="level-card" data-level="medium">
+                    <div class="level-header">
+                        <div class="level-icon">🟡</div>
+                        <h3>Medium</h3>
+                        <div class="level-badge" id="mediumBadge">0 games</div>
+                    </div>
+                    <div class="level-stats">
+                        <div class="level-stat">
+                            <span>Best Score:</span>
+                            <span id="mediumBest">0</span>
+                        </div>
+                        <div class="level-stat">
+                            <span>Avg Accuracy:</span>
+                            <span id="mediumAccuracy">0%</span>
+                        </div>
+                    </div>
+                    <div class="level-progress-bar">
+                        <div class="progress-fill" id="mediumProgress"></div>
+                    </div>
+                </div>
+
+                <div class="level-card" data-level="hard">
+                    <div class="level-header">
+                        <div class="level-icon">🔴</div>
+                        <h3>Hard</h3>
+                        <div class="level-badge" id="hardBadge">0 games</div>
+                    </div>
+                    <div class="level-stats">
+                        <div class="level-stat">
+                            <span>Best Score:</span>
+                            <span id="hardBest">0</span>
+                        </div>
+                        <div class="level-stat">
+                            <span>Avg Accuracy:</span>
+                            <span id="hardAccuracy">0%</span>
+                        </div>
+                    </div>
+                    <div class="level-progress-bar">
+                        <div class="progress-fill" id="hardProgress"></div>
+                    </div>
+                </div>
+
+                <div class="level-card" data-level="legendary">
+                    <div class="level-header">
+                        <div class="level-icon">🏆</div>
+                        <h3>Legendary</h3>
+                        <div class="level-badge" id="legendaryBadge">0 games</div>
+                    </div>
+                    <div class="level-stats">
+                        <div class="level-stat">
+                            <span>Best Score:</span>
+                            <span id="legendaryBest">0</span>
+                        </div>
+                        <div class="level-stat">
+                            <span>Avg Accuracy:</span>
+                            <span id="legendaryAccuracy">0%</span>
+                        </div>
+                    </div>
+                    <div class="level-progress-bar">
+                        <div class="progress-fill" id="legendaryProgress"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Games -->
+        <section class="recent-games">
+            <h2 class="section-title">🕒 Recent Games</h2>
+            <div class="games-list" id="recentGamesList">
+                <!-- Recent games will be populated here -->
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section class="achievements">
+            <h2 class="section-title">🏅 Achievements</h2>
+            <div class="achievements-grid" id="achievementsGrid">
+                <!-- Achievements will be populated here -->
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="action-section">
+            <div class="action-buttons">
+                <button class="action-btn primary" id="newGameBtn">
+                    <span class="btn-icon">🚀</span>
+                    <span>Start New Game</span>
+                </button>
+                <button class="action-btn secondary" id="resetStatsBtn">
+                    <span class="btn-icon">🔄</span>
+                    <span>Reset Statistics</span>
+                </button>
+                <button class="action-btn secondary" id="exportStatsBtn">
+                    <span class="btn-icon">📊</span>
+                    <span>Export Data</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="results-footer">
+            <p>📊 Math Quest Statistics © 2025 | Keep Learning, Keep Growing! 🧮</p>
+        </footer>
+    </div>
+
+    <!-- Results Logic Script -->
+    <script src="results-logic.js"></script>
+</body>
+
+</html>
