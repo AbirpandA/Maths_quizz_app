@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quest - Game Arena</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="game-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="math-symbol">+</div>
+        <div class="math-symbol">-</div>
+        <div class="math-symbol">×</div>
+        <div class="math-symbol">÷</div>
+        <div class="math-symbol">=</div>
+        <div class="math-symbol">∑</div>
+        <div class="math-symbol">π</div>
+        <div class="math-symbol">∞</div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- Game Header -->
+        <header class="game-header-bar">
+            <div class="player-info">
+                <div class="player-avatar">🎮</div>
+                <div class="player-details">
+                    <h3 class="player-name" id="playerName">Player</h3>
+                    <div class="player-level">Level <span id="currentLevel">1</span></div>
+                </div>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-value">
+                        <span id="currentScore">0</span>
+                        <small>Score</small>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-value">
+                        <span id="questionsAnswered">0</span>/<span id="totalQuestions">10</span>
+                        <small>Progress</small>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value">
+                        <span id="timeRemaining">30</span>s
+                        <small>Time</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button class="control-btn" id="pauseBtn" title="Pause Game">⏸️</button>
+                <button class="control-btn" id="helpBtn" title="Help">❓</button>
+                <button class="control-btn" id="homeBtn" title="Home">🏠</button>
+            </div>
+        </header>
+
+        <!-- Game Content -->
+        <main class="game-content" id="gameContent">
+            <!-- Welcome Screen -->
+            <div class="welcome-screen active" id="welcomeScreen">
+                <div class="welcome-content">
+                    <h2 class="welcome-title">🚀 Welcome to Math Quest!</h2>
+                    <p class="welcome-message">Get ready to embark on your mathematical adventure!</p>
+                    <div class="level-selector">
+                        <h3>Choose Your Starting Difficulty:</h3>
+                        <div class="difficulty-buttons">
+                            <button class="difficulty-btn" data-level="easy">
+                                <div class="difficulty-icon">🟢</div>
+                                <h4>Easy</h4>
+                                <p>Simple addition & subtraction</p>
+                                <small>+10 points per answer</small>
+                            </button>
+                            <button class="difficulty-btn" data-level="medium">
+                                <div class="difficulty-icon">🟡</div>
+                                <h4>Medium</h4>
+                                <p>Multiplication & division</p>
+                                <small>+20 points per answer</small>
+                            </button>
+                            <button class="difficulty-btn" data-level="hard">
+                                <div class="difficulty-icon">🔴</div>
+                                <h4>Hard</h4>
+                                <p>Mixed operations</p>
+                                <small>+30 points per answer</small>
+                            </button>
+                            <button class="difficulty-btn" data-level="legendary">
+                                <div class="difficulty-icon">🏆</div>
+                                <h4>Legendary</h4>
+                                <p>Complex challenges</p>
+                                <small>+50 points per answer</small>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Screen -->
+            <div class="question-screen" id="questionScreen">
+                <div class="question-content">
+                    <div class="question-header">
+                        <div class="difficulty-badge" id="difficultyBadge">Easy</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <h2 class="question-title">Solve This Problem:</h2>
+                        <div class="math-equation" id="mathEquation">2 + 3 = ?</div>
+
+                        <div class="answer-section">
+                            <input type="number" class="answer-input" id="answerInput" placeholder="Your answer...">
+                            <button class="submit-btn" id="submitAnswer">
+                                <span>Submit</span>
+                                <div class="btn-arrow">→</div>
+                            </button>
+                        </div>
+
+                        <div class="answer-options" id="answerOptions" style="display: none;">
+                            <!-- Multiple choice options will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="question-footer">
+                        <div class="hint-section">
+                            <button class="hint-btn" id="hintBtn">💡 Get Hint</button>
+                            <div class="hint-text" id="hintText"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div class="results-screen" id="resultsScreen">
+                <div class="results-content">
+                    <div class="result-animation" id="resultAnimation">
+                        <div class="result-icon" id="resultIcon">🎉</div>
+                        <h2 class="result-message" id="resultMessage">Excellent!</h2>
+                    </div>
+
+                    <div class="score-breakdown">
+                        <div class="score-item">
+                            <span class="score-label">Correct Answers:</span>
+                            <span class="score-value" id="correctAnswers">8/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Total Score:</span>
+                            <span class="score-value" id="finalScore">240</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Accuracy:</span>
+                            <span class="score-value" id="accuracy">80%</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Time Bonus:</span>
+                            <span class="score-value" id="timeBonus">+50</span>
+                        </div>
+                    </div>
+
+                    <div class="achievement-section" id="achievementSection">
+                        <!-- Achievements will be populated here -->
+                    </div>
+
+                    <div class="next-actions">
+                        <button class="action-btn primary" id="nextLevelBtn">
+                            <span>Next Level</span>
+                            <div class="btn-icon">🚀</div>
+                        </button>
+                        <button class="action-btn secondary" id="playAgainBtn">
+                            <span>Play Again</span>
+                            <div class="btn-icon">🔄</div>
+                        </button>
+                        <button class="action-btn secondary" id="viewStatsBtn">
+                            <span>View Stats</span>
+                            <div class="btn-icon">📊</div>
+                        </button>
+                        <button class="action-btn secondary" id="homeBtn2">
+                            <span>Home</span>
+                            <div class="btn-icon">🏠</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pause Screen -->
+            <div class="pause-screen" id="pauseScreen">
+                <div class="pause-content">
+                    <h2 class="pause-title">⏸️ Game Paused</h2>
+                    <p class="pause-message">Take a break! Your progress is saved.</p>
+                    <div class="pause-stats">
+                        <div class="pause-stat">
+                            <strong>Current Score:</strong> <span id="pauseScore">0</span>
+                        </div>
+                        <div class="pause-stat">
+                            <strong>Questions Left:</strong> <span id="pauseQuestionsLeft">10</span>
+                        </div>
+                        <div class="pause-stat">
+                            <strong>Current Level:</strong> <span id="pauseLevel">Easy</span>
+                        </div>
+                    </div>
+                    <div class="pause-actions">
+                        <button class="action-btn primary" id="resumeBtn">
+                            <span>Resume</span>
+                            <div class="btn-icon">▶️</div>
+                        </button>
+                        <button class="action-btn secondary" id="restartBtn">
+                            <span>Restart</span>
+                            <div class="btn-icon">🔄</div>
+                        </button>
+                        <button class="action-btn secondary" id="quitBtn">
+                            <span>Quit to Home</span>
+                            <div class="btn-icon">🏠</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Game Footer -->
+        <footer class="game-footer">
+            <div class="quick-stats">
+                <span>Session Best: <strong id="sessionBest">0</strong></span>
+                <span>Total Games: <strong id="totalGames">0</strong></span>
+                <span>Average Score: <strong id="averageScore">0</strong></span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Game Logic Scripts -->
+    <script src="game-logic.js"></script>
+    <script src="game-ui.js"></script>
+</body>
+
+</html>
